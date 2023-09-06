@@ -1,0 +1,29 @@
+type Query {
+	entrypoint: TestInterface!
+
+	node(id: ID!): Node!
+}
+
+interface Node {
+	id: ID!
+}
+
+interface TestInterface implements Node{
+	id: ID!
+
+	fieldA: String!
+}
+
+type TypeWithFieldB implements Node & TestInterface {
+	id: ID!
+
+	fieldA: String!
+	fieldB:	String!
+}
+
+type TypeWithFieldC implements Node & TestInterface {
+	id: ID!
+
+	fieldA: String!
+	fieldC:	String!
+}
