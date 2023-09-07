@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<be98f87859ea9cf98028693fb6a106f5>>
+ * @generated SignedSource<<00b380d34f0a5a82684a74882da12168>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -11,19 +11,11 @@
 import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type Test$data = {
-  readonly __typename: "TypeWithFieldB";
-  readonly fieldA: string;
-  readonly fieldB: string;
-  readonly " $fragmentType": "Test";
-} | {
-  readonly __typename: "TypeWithFieldC";
-  readonly fieldA: string;
-  readonly fieldC: string;
-  readonly " $fragmentType": "Test";
-} | {
-  // This will never be '%other', but we need some
-  // value in case none of the concrete values match.
-  readonly __typename: "%other";
+  readonly __typename: string;
+  readonly fieldA?: string;
+  readonly fieldB?: string;
+  readonly fieldC?: string;
+  readonly id: string;
   readonly " $fragmentType": "Test";
 };
 export type Test$key = {
@@ -33,13 +25,6 @@ export type Test$key = {
 
 const node: ReaderFragment = (function(){
 var v0 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "__typename",
-  "storageKey": null
-},
-v1 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -53,10 +38,23 @@ return {
   "name": "Test",
   "selections": [
     {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "id",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "__typename",
+      "storageKey": null
+    },
+    {
       "kind": "InlineFragment",
       "selections": [
         (v0/*: any*/),
-        (v1/*: any*/),
         {
           "alias": null,
           "args": null,
@@ -72,7 +70,6 @@ return {
       "kind": "InlineFragment",
       "selections": [
         (v0/*: any*/),
-        (v1/*: any*/),
         {
           "alias": null,
           "args": null,
@@ -90,6 +87,6 @@ return {
 };
 })();
 
-(node as any).hash = "b31a2114a9dc21d5fc3667ef313bb202";
+(node as any).hash = "87f556b2dc475025c852b1a02298acb8";
 
 export default node;

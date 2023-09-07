@@ -8,7 +8,7 @@ interface Node {
 	id: ID!
 }
 
-interface TestInterface implements Node{
+interface TestInterface implements Node {
 	id: ID!
 
 	fieldA: String!
