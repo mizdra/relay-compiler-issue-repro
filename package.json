@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "gen": "relay-compiler"
+  },
   "dependencies": {
     "@types/react-relay": "^14.1.5",
     "react-relay": "^15.0.0",
