@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<9c2b31789e650b57301b843a377ae979>>
+ * @generated SignedSource<<25f9e480fae88ccb8cb638029967801a>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -15,25 +15,23 @@ export type TestQuery$variables = {
 };
 export type TestQuery$data = {
   readonly node: {
-    readonly " $fragmentSpreads": FragmentRefs<"Test">;
+    readonly " $fragmentSpreads": FragmentRefs<"TestQuery_node">;
   };
 };
 export type TestQuery$rawResponse = {
   readonly node: {
-    readonly __typename: "TypeWithFieldB";
-    readonly __isTestInterface: "TypeWithFieldB";
-    readonly fieldA: string;
-    readonly fieldB: string;
+    readonly __typename: "Author";
+    readonly __isNode: "Author";
     readonly id: string;
+    readonly name: string;
   } | {
-    readonly __typename: "TypeWithFieldC";
-    readonly __isTestInterface: "TypeWithFieldC";
-    readonly fieldA: string;
-    readonly fieldC: string;
+    readonly __typename: "Book";
+    readonly __isNode: "Book";
     readonly id: string;
+    readonly title: string;
   } | {
     readonly __typename: string;
-    readonly __isTestInterface: string;
+    readonly __isNode: string;
     readonly id: string;
   };
 };
@@ -57,14 +55,7 @@ v1 = [
     "name": "id",
     "variableName": "id"
   }
-],
-v2 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "fieldA",
-  "storageKey": null
-};
+];
 return {
   "fragment": {
     "argumentDefinitions": (v0/*: any*/),
@@ -83,7 +74,7 @@ return {
           {
             "args": null,
             "kind": "FragmentSpread",
-            "name": "Test"
+            "name": "TestQuery_node"
           }
         ],
         "storageKey": null
@@ -114,6 +105,10 @@ return {
             "storageKey": null
           },
           {
+            "kind": "TypeDiscriminator",
+            "abstractKey": "__isNode"
+          },
+          {
             "alias": null,
             "args": null,
             "kind": "ScalarField",
@@ -124,38 +119,29 @@ return {
             "kind": "InlineFragment",
             "selections": [
               {
-                "kind": "InlineFragment",
-                "selections": [
-                  (v2/*: any*/),
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "fieldB",
-                    "storageKey": null
-                  }
-                ],
-                "type": "TypeWithFieldB",
-                "abstractKey": null
-              },
-              {
-                "kind": "InlineFragment",
-                "selections": [
-                  (v2/*: any*/),
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "fieldC",
-                    "storageKey": null
-                  }
-                ],
-                "type": "TypeWithFieldC",
-                "abstractKey": null
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "title",
+                "storageKey": null
               }
             ],
-            "type": "TestInterface",
-            "abstractKey": "__isTestInterface"
+            "type": "Book",
+            "abstractKey": null
+          },
+          {
+            "kind": "InlineFragment",
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "name",
+                "storageKey": null
+              }
+            ],
+            "type": "Author",
+            "abstractKey": null
           }
         ],
         "storageKey": null
@@ -163,16 +149,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "1e1cbe7b2373fcf45f04d328a5733afc",
+    "cacheID": "afc6c2ebd788245c4482af0194879a40",
     "id": null,
     "metadata": {},
     "name": "TestQuery",
     "operationKind": "query",
-    "text": "query TestQuery(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...Test\n    id\n  }\n}\n\nfragment Test on TestInterface {\n  __isTestInterface: __typename\n  id\n  __typename\n  ... on TypeWithFieldB {\n    __typename\n    fieldA\n    fieldB\n  }\n  ... on TypeWithFieldC {\n    __typename\n    fieldA\n    fieldC\n  }\n}\n"
+    "text": "query TestQuery(\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...TestQuery_node\n    id\n  }\n}\n\nfragment TestQuery_node on Node {\n  __isNode: __typename\n  id\n  __typename\n  ... on Book {\n    title\n  }\n  ... on Author {\n    name\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "0c1e6a7938eb702bbf7c044aa3bead56";
+(node as any).hash = "39891541b60bd120f46aa88ac9909d31";
 
 export default node;

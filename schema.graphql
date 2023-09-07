@@ -1,6 +1,4 @@
 type Query {
-	entrypoint: TestInterface!
-
 	node(id: ID!): Node!
 }
 
@@ -8,22 +6,21 @@ interface Node {
 	id: ID!
 }
 
-interface TestInterface implements Node {
+type Book implements Node {
 	id: ID!
-
-	fieldA: String!
+	title: String!
+	author: Author!
 }
 
-type TypeWithFieldB implements Node & TestInterface {
+type Author implements Node {
 	id: ID!
-
-	fieldA: String!
-	fieldB:	String!
+	name: String!
+	books: [Book!]!
 }
 
-type TypeWithFieldC implements Node & TestInterface {
+type Image implements Node {
 	id: ID!
-
-	fieldA: String!
-	fieldC:	String!
+	url: String!
+	width: Int!
+	height: Int!
 }
