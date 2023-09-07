@@ -42,17 +42,8 @@ const mockResponse2: TestQuery$rawResponse = {
   },
 }
 
-// ok
-const mockResponse3: TestQuery$rawResponse = {
-  node: {
-    __typename: 'Image',
-    __isNode: 'Image',
-    id: 'Image-1',
-  },
-}
-
 // NOT OK
-const mockResponse4: TestQuery$rawResponse = {
+const mockResponse3: TestQuery$rawResponse = {
   node: {
     __typename: 'Book',
     __isNode: 'Book',
